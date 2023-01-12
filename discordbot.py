@@ -18,12 +18,6 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-
-    if message.content == f'{PREFIX}호!':
-        await message.channel.send("야")
-
-    if message.content.startswith(f'{PREFIX}야'):
-        await message.channel.send('호!')
         
 
 
