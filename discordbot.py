@@ -24,6 +24,17 @@ async def on_message(message):
 
     if message.content.startswith(f'{PREFIX}hello'):
         await message.channel.send('Hello!')
+        
+        
+        
+@client.event
+async def on_message(msg):
+    if msg.author.bot: return None
+    await bot.process_commands(msg)
+
+@client.command()
+async def 야(ctx):
+    await ctx.channel.send('호!')
 
 
 try:
