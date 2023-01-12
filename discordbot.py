@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-PREFIX = os.environ['PREFIX']
+PREFIX = os.environ['!']
 TOKEN = os.environ['TOKEN']
 
 client = discord.Client()
@@ -18,6 +18,16 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    
+    
+@client.event
+async def on_message(msg):
+    if msg.author.bot: return None
+    await bot.process_commands(msg)
+
+@client.command()
+async def 야(ctx):
+    await ctx.channel.send('호!')
         
 
 
